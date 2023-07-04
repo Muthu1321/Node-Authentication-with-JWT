@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 const User = require("../user/user.model");
 
-exports.protect = async (req, res, next) => {
+const protect = async (req, res, next) => {
   let token;
 
   token = req.cookies.jwt;
@@ -25,3 +25,5 @@ exports.protect = async (req, res, next) => {
     throw new Error("Not authorized, no token");
   }
 };
+
+module.exports = protect;
